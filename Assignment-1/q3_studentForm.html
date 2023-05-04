@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Form</title>
+    <style>
+        div{
+            text-align: left;
+            margin-top: 10%;
+            margin-left: 30%;
+            margin-right: 30%;
+            padding: 5%;
+            background: #bbbbbb;
+        }
+    </style>
+</head>
+<body>
+<h1 style="text-align: center">
+    Student Form
+</h1>
+<div>
+
+<label>Enter your name
+    <input type="text" id="name">
+</label>
+<br><br>
+<label>Enter your College name
+    <input type="text" id="cname" placeholder="Enter your college name">
+</label>
+<br><br>
+<label>Enter your age
+    <input type="number" id="age">
+</label>
+<br><br>
+<label>Enter your Registration number
+    <input type="text" id="regno" required>
+</label>
+<br><br>
+<label>Confirm
+  <input type="checkbox" id="check">
+</label>
+<br><br>
+<button type="button" onclick="submit()">Submit</button>
+<script>
+  //check if age is greater than 16 and less than 20 by using event handler
+    let age = document.getElementById("age");
+    age.addEventListener("blur", function () {
+        if (age.value < 16 || age.value > 20) {
+            alert("Age should be between 16 and 20");
+            age.value = "";
+        }
+    });
+    //no.of characters in name should be less than 30
+    let name = document.getElementById("name");
+    name.addEventListener("blur", function () {
+        if (name.value.length > 30) {
+            alert("Name should be less than 30 characters");
+            name.value = "";
+        }
+    });
+    // should not allow copy and paste in any of the fields
+    let cname = document.getElementById("cname");
+    cname.addEventListener("paste", function () {
+        alert("Copy and paste is not allowed");
+        cname.value = "";
+    });
+    let regno = document.getElementById("regno");
+    regno.addEventListener("paste", function () {
+        alert("Copy and paste is not allowed");
+        regno.value = "";
+    });
+  //check if check box is checked
+    let check = document.getElementById("check");
+    check.addEventListener("click", function () {
+        if (check.checked === false) {
+            alert("Please check the box");
+        }
+    });
+    //submit the form
+    function submit() {
+        if (check.checked === true) {
+            alert("Form submitted successfully");
+        }
+    }
+</script>
+</div>
+</body>
+</html>

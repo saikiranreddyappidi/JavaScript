@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shopping Cart</title>
+  <style>
+    button{
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 10px;
+    }
+    body{
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+      padding-top: 15%;
+      padding-left: 25%;
+    }
+    th,tr.head{
+        background-color: lightcoral;
+    }
+    table{
+      border-collapse: collapse;
+      width: 50%;
+    }
+    tr.even{
+      background-color: lightpink;
+    }
+    tr.odd{
+        background-color: lightblue;
+    }
+  </style>
+</head>
+<body>
+<table border="1">
+  <tr class="head">
+    <th>Fruit</th>
+    <th>Color</th>
+    <th>Price</th>
+    <th>Quantity</th>
+    <th>Cart</th>
+  </tr>
+  <tr class="odd">
+    <td>Apple</td>
+    <td>Red</td>
+    <td>Rs.25</td>
+    <td>
+    <label for="apple">Select Quantity:</label>
+        <select id="apple">
+          <option>1 Kg</option>
+          <option>2 Kg</option>
+          <option>3 Kg</option>
+          <option>4 Kg</option>
+        </select>
+    </td>
+    <td><button class="btn" onclick="fruits('apple')">Add to Cart</button></td>
+  </tr>
+  <tr class="even">
+    <td>Banana</td>
+    <td>Yellow</td>
+    <td>Rs.5</td>
+    <td>
+    <label for="banana">Select Quantity:</label>
+        <select id="banana">
+          <option>1 Dozen</option>
+          <option>2 Dozen</option>
+          <option>3 Dozen</option>
+          <option>4 Dozen</option>
+        </select>
+    </td>
+    <td><button class="btn" onclick="fruits('banana')">Add to Cart</button></td>
+  </tr>
+    <tr class="odd">
+        <td>Orange</td>
+        <td>Orange</td>
+        <td>Rs.12</td>
+        <td>
+        <label for="orange">Select Quantity:</label>
+            <select id="orange">
+            <option>1 Kg</option>
+            <option>2 Kg</option>
+            <option>3 Kg</option>
+            <option>4 Kg</option>
+            </select>
+        </td>
+        <td><button class="btn" onclick="fruits('orange')">Add to Cart</button></td>
+    </tr>
+    <tr class="even">
+        <td>Avocado</td>
+        <td>Green</td>
+        <td>Rs.30</td>
+        <td>
+        <label for="watermelon">Select Quantity:</label>
+            <select id="watermelon">
+            <option>1 Kg</option>
+            <option>2 Kg</option>
+            <option>3 Kg</option>
+            <option>4 Kg</option>
+            </select>
+        </td>
+        <td><button class="btn" onclick="fruits('watermelon')">Add to Cart</button></td>
+</table>
+</body>
+<script>
+    function fruits(fruit){
+        var quantity = document.getElementById(fruit).value;
+        alert("You have added "+quantity+" of "+fruit+" to your cart.");
+    }
+</script>
+</html>

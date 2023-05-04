@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+ul, #myUL {
+  list-style-type: none;
+}
+
+#myUL {
+  margin: 0;
+  padding: 0;
+}
+
+.caret {
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.caret::before {
+  content: "\25B6";
+  color: black;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.caret-down::before {
+  -ms-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.nested {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+</style>
+  <title>Nested Drop Down</title>
+</head>
+<body>
+
+<h2>Tree View</h2>
+<p>A tree view represents a hierarchical view of information, where each item can have a number of subitems.</p>
+<p>Click on the arrow(s) to open or close the tree branches.</p>
+
+<ul id="myUL">
+  <li><span class="caret">Select State</span>
+    <ul class="nested">
+      <li><span class="caret">Andhra Pradesh</span>
+        <ul class="nested">
+          <li><span class="caret">Krishna</span>
+          <ul class="nested">
+            <li>Gudivada</li>
+            <li>Machilipatnam</li>
+          </ul>
+          </li>
+          <li><span class="caret">NTR</span>
+          <ul class="nested">
+            <li>Repudi</li>
+            <li>Tiruvuru</li>
+            <li>Mylavaram</li>
+          </ul>
+          </li>
+          <li><span class="caret">Guntur</span>
+          <ul class="nested">
+            <li>Vadlamudi</li>
+            <li>Tenali</li>
+          </ul>
+          </li>
+        </ul>
+      </li>
+        <li><span class="caret">Telangana</span>
+            <ul class="nested">
+          <li><span class="caret">Hyderabad</span>
+          <ul class="nested">
+            <li>Chintal</li>
+            <li>Old City</li>
+          </ul>
+          </li>
+          <li><span class="caret">Warangal</span>
+          <ul class="nested">
+            <li>Khambampadu</li>
+            <li>Vissannapeta</li>
+          </ul>
+          </li>
+          <li><span class="caret">Khammam</span>
+          <ul class="nested">
+            <li>Lankapalli</li>
+            <li>Satupally</li>
+          </ul>
+          </li>
+        </ul>
+    </ul>
+  </li>
+</ul>
+
+<script>
+var toggler = document.getElementsByClassName("caret");
+var i;
+
+for (i = 0; i < toggler.length; i++) {
+  toggler[i].addEventListener("click", function() {
+    this.parentElement.querySelector(".nested").classList.toggle("active");
+    this.classList.toggle("caret-down");
+  });
+}
+</script>
+
+</body>
+</html>

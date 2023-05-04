@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Time Table</title>
+  <style>
+    body{
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 15px;
+    }
+    th {
+      text-align: left;
+    }
+    th,td.day{
+      background-color: #e6e6ff;
+    }
+    td.office{
+      background-color: #6666ff;
+    }
+    td.wt{
+      background-color: #80ff80;
+    }
+    td.meeting{
+      background-color: #ffccff;
+    }
+    td.ws{
+      background-color: #ccffff;
+    }
+    td.null{
+      background-color: #ff0000;
+    }
+    div{
+        margin-top: 10%;
+      margin-left: 30%;
+      margin-right: 30%;
+    }
+  </style>
+</head>
+<body>
+<!--create a timetable-->
+<div>
+<table border="1">
+    <tr>
+        <th class="day">Day</th>
+        <th>1:00</th>
+        <th>2:00</th>
+        <th>3:00</th>
+        <th>4:00</th>
+      <th>5:00</th>
+    </tr>
+    <tr>
+        <td class="day">Monday</td>
+        <td colspan="2" class="office">Office</td>
+        <td colspan="3" class="wt">WT</td>
+    </tr>
+    <tr>
+        <td class="day">Tuesday</td>
+        <td class="null"></td>
+        <td colspan="2" class="meeting">Dept Meeting</td>
+        <td class="null"></td>
+        <td class="meeting">Dept Meeting</td>
+    </tr>
+    <tr>
+        <td class="day">Wednesday</td>
+        <td colspan="3" class="office">Office</td>
+        <td colspan="2" class="meeting">Dept Meeting</td>
+    </tr>
+    <tr>
+        <td class="day">Thursday</td>
+        <td colspan="5" class="ws">IT workshop</td>
+    </tr>
+  <tr>
+        <td class="day">Friday</td>
+        <td colspan="4" class="wt">WT</td>
+        <td class="office">Office</td>
+    </tr>
+</table>
+    </div>
+</body>
+</html>

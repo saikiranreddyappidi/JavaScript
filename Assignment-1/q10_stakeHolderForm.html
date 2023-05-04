@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stake Holder Form</title>
+  <style>
+    .divi{
+        padding-left: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+        background: #bbbbbb;
+        width: 35%;
+      margin-left: 30%;
+        border: 5px solid black;
+      border-radius: 10px;
+      height: 60%;
+    }
+    .inp{
+        border-radius: 5px;
+      width: 70%;
+      padding: 1%;
+      margin-left: 10%;
+      margin-top: 3%;
+      margin-bottom: 3%;
+    }
+    p{
+      padding:2%;
+        text-align: left;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    label, h1{
+      padding: 5%;
+      /*font-size: 10px;*/
+    }
+    button{
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 8px 28px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+<form id="form">
+<div class="divi">
+  <h1>Stake Holder Form</h1>
+  <label><b>Full Name:</b>
+    <input type="text" name="name" placeholder="Enter your name" class="inp">
+  </label>
+    <br>
+  <label><b>Type of Stake Holder:</b>
+  <select>
+    <option>Customer</option>
+    <option>Supplier</option>
+    <option>Employee</option>
+    <option>Investor</option>
+  </select>
+  </label>
+    <br><br>
+  <label>
+    <b>Cell Number:</b>
+    <input type="text" name="cell" placeholder="Enter your cell number" class="inp">
+  </label>
+  <p><b>Course contents of curriculum are in tune with the program:</b></p>
+  <label>
+    <input type="radio" name="content">
+    Good
+</label>
+  <label>
+    <input type="radio" name="content">Fair
+  </label>
+<label>
+  <input type="radio" name="content">Poor
+  </label>
+  <label>
+    <input type="radio" name="content">Bad
+  </label>
+  <p><b>Allocation of credits to courses are satisfiable:</b></p>
+  <label>
+    <input type="radio" name="cont">Good
+</label>
+  <label>
+    <input type="radio" name="cont">Fair
+  </label>
+<label>
+  <input type="radio" name="cont">Poor
+  </label>
+  <label>
+    <input type="radio" name="cont">Bad
+  </label>
+<!--  progress bar-->
+  <br><br>
+  <label><b>Curriculum is providing opportunity towards self learning:</b><br>
+    <input type="range" min="1" max="100" value="50" class="inp">
+  </label>
+  <br><br>
+  <label>
+    <input type="checkbox"><b>I agree to the terms and conditions.</b>
+  </label>
+    <br><br>
+  <div style="margin-left: 25%">
+    <button type="submit" class="btn" onclick="submit()
+    {
+    alert('Thank you for your feedback!');
+  }">Submit</button>
+  <button type="reset" class="btn" onclick="reset()
+{
+    alert('Form has been reset !!!');
+    document.getElementById('form').reset();
+  }">Reset</button>
+  </div>
+</div>
+  </form>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 350px;
+  perspective: 1000px;
+  position: relative;
+  display: inline-block;
+  padding: 5%;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.flip-card-back {
+  background-color: #2980b9;
+  color: white;
+  transform: rotateY(180deg);
+}
+.icon{
+  background: whitesmoke;
+  padding-top: 10%;
+}
+
+</style>
+  <title>Flip Cards</title>
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+</head>
+<body>
+
+<h1 style="text-align: center">Multinational Tech Company's</h1>
+
+<div style="display: inline;position: relative">
+  <div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <div class="icon">
+      <i class='fab fa-apple' style='font-size:158px;width:300px;height:200px;'></i>
+        </div>
+      <div>
+      <h1>Apple</h1>
+    </div>
+    </div>
+    <div class="flip-card-back">
+      <h1>Apple</h1>
+      <p>Apple Inc. is an American multinational technology company headquartered in Cupertino, California. Apple is the world's largest technology company by revenue, with US$394.3 billion in 2022 revenue. As of March 2023, Apple is the world's biggest company by market capitalization.
+      As of June 2022, Apple is the fourth-largest personal computer vendor by unit sales and second-largest mobile phone manufacturer. It is one of the Big Five American information technology companies, alongside Alphabet Inc., Amazon, Meta Platforms, and Microsoft.
+      </p>
+    </div>
+  </div>
+</div>
+  <div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <div class="icon">
+      <i class='fab fa-github' style='font-size:158px;width:300px;height:200px;'></i>
+        </div>
+      <div>
+      <h1>GitHub</h1>
+    </div>
+    </div>
+    <div class="flip-card-back">
+      <h1>GitHub</h1>
+      <p>GitHub, Inc. is an Internet hosting service for software development and version control using Git. It provides the distributed version control of Git plus access control, bug tracking, software feature requests, task management, continuous integration, and wikis for every project. Headquartered in California, it has been a subsidiary of Microsoft since 2018.
+        As of January 2023, GitHub reported having over 100 million developers and more than 372 million repositories, including at least 28 million public repositories.
+      </p>
+    </div>
+  </div>
+</div>
+  <div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <div class="icon">
+      <i class='fab fa-microsoft' style='font-size:158px;width:300px;height:200px;'></i>
+        </div>
+      <div>
+      <h1>Microsoft</h1>
+    </div>
+    </div>
+    <div class="flip-card-back">
+      <h1>Microsoft</h1>
+      <p>Microsoft Corporation is an American multinational technology corporation headquartered in Redmond, Washington. Microsoft's best-known software products are the Windows line of operating systems, the Microsoft Office suite, and the Internet Explorer and Edge web browsers. Its flagship hardware products are the Xbox video game consoles and the Microsoft Surface lineup of touchscreen personal computers. Microsoft ranked No. 14 in the 2022 Fortune 500 rankings of the largest United States corporations by total revenue.
+      </p>
+    </div>
+  </div>
+</div>
+</div>
+
+</body>
+</html>

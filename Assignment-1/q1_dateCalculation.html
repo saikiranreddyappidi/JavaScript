@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Date Checker</title>
+    <style>
+        div{
+            margin-top: 15%;
+        }
+    </style>
+</head>
+<body style="text-align: center">
+<div>
+    <label><strong>Enter a date : </strong>
+  <input type="date" id="date"/>
+</label>
+</div>
+<br><br>
+<button type="button" onclick="dateChecker()" id="btn">Check</button>
+<h3 id="age"></h3>
+<script>
+    function dateChecker() {
+        //avoid future dates
+        let today = new Date();
+        let dd = today.getDate();
+        let mm = today.getMonth() + 1;
+        let yyyy = today.getFullYear();
+        let I_date = document.getElementById("date");
+        let enteredDate = I_date.value;
+        let enteredDateObj = new Date(enteredDate);
+        let enteredDateDD = enteredDateObj.getDate();
+        let enteredDateMM = enteredDateObj.getMonth() + 1;
+        let enteredDateYYYY = enteredDateObj.getFullYear();
+        if (enteredDateYYYY > yyyy) {
+            alert("Future dates are not allowed");
+            I_date.reset();
+
+        } else if (enteredDateYYYY === yyyy) {
+            if (enteredDateMM > mm) {
+                alert("Future dates are not allowed");
+                I_date.reset();
+            } else if (enteredDateMM === mm) {
+                if (enteredDateDD > dd) {
+                    alert("Future dates are not allowed");
+                    I_date.reset();
+                }
+            }
+        }
+        ageCalculator();
+    }
+    function ageCalculator() {
+            let date = document.getElementById("date").value;
+            let dateObj = new Date(date);
+            let day = dateObj.getDay();
+            let month = dateObj.getMonth();
+            let year = dateObj.getFullYear();
+            //current date
+            let currentDate = new Date();
+            //calculate age
+            let age = currentDate.getFullYear() - year;
+            //calculate month
+            let monthDiff = currentDate.getMonth() - month;
+            //calculate day
+            let dayDiff = currentDate.getDate() - day;
+            //check if month is negative
+            if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+                age--;
+            }
+            // document.getElementById("btn").hidden = true;
+            //display age
+            document.getElementById("age").innerHTML="Your age is " + age;
+        }
+</script>
+</body>
+</html>

@@ -1,45 +1,46 @@
-var items = [];
-var totalPrice = 0;
-var item_no = 0;
-var total=false;
+const items = [];
+let totalPrice = 0;
+let item_no = 0;
+let total = false;
 
 function openDiv() {
-    // const mainDiv = document.getElementById("outer-div");
-    // mainDiv.style.cssFloat = "left";
     document.getElementById("multi-use").style.display = "block";
 }
 function closeDiv(){
     const multi_div=document.getElementById("multi-use");
     multi_div.style.display = "none";
-    // multi_div.innerHTML="";
-    // const mainDiv = document.getElementById("outer-div");
-    // mainDiv.style.marginLeft = "200px";
 }
 function addItem() {
-    var itemName = document.getElementById("item-name").value;
-    var itemPrice = document.getElementById("price").value;
-    var itemQuantity = document.getElementById("quantity").value;
-    var item = {
+    const itemName = document.getElementById("item-name").value;
+    const itemPrice = document.getElementById("price").value;
+    const itemQuantity = document.getElementById("quantity").value;
+    if(itemName==="" || itemPrice==="" || itemQuantity===""){
+        alert("Please fill all the fields");
+        return;
+    }
+    if(Number.isInteger(parseInt(itemPrice))===false || Number.isInteger(parseInt(itemQuantity))===false){
+        alert("Please enter valid price and quantity");
+        return;
+    }
+    const item = {
         name: itemName,
         price: itemPrice,
         quantity: itemQuantity
     };
     items.push(item);
-    const x = document.getElementById("toast");
-    x.visibility = "visible";
     document.getElementById("item-name").value = "";
     document.getElementById("price").value = "";
     document.getElementById("quantity").value = "";
-    setTimeout(function(){ x.visibility = "hidden"; }, 30000);
     console.log(items);
     if(document.getElementById("multi-use").style.display === "block") {
         viewItems();
     }
+    toast();
 }
 function viewItems() {
     openDiv();
+    document.getElementById("items-basket").style.display = "block";
     const table = document.getElementById("items-table");
-    table.style.display = "block";
     const tableBody = document.createElement("tbody");
     for (let i = item_no; i < items.length; i++) {
         const row = document.createElement("tr");
@@ -55,6 +56,14 @@ function viewItems() {
         const cellText3 = document.createTextNode(items[i].quantity);
         cell3.appendChild(cellText3);
         row.appendChild(cell3);
+        tableBody.appendChild(row);
+        // add delete button
+        const cell4 = document.createElement("td");
+        const cellText4 = document.createElement("SPAN");
+        // cellText4.className = "close";
+        cellText4.innerHTML = '<button type="button" onclick=deleteItem('+item_no+')>'+'Delete</button>';
+        cell4.appendChild(cellText4);
+        row.appendChild(cell4);
         tableBody.appendChild(row);
         item_no++;
     }
@@ -73,17 +82,33 @@ function totalPriceFunc() {
         totalPrice += items[i].price * items[i].quantity;
     }
     const price = document.getElementById("Text-description");
-    price.innerHTML="<b>"+"Total Price: "+totalPrice+"</b>";
+    price.innerHTML="<br><b>"+"Total Price: "+totalPrice+"</b>";
     price.style.display="block"
 }
 function generateBill() {
     openDiv();
-    const table = document.getElementById("Text-description");
-    let bill = "Bill: \n";
-    for (let i = 0; i < items.length; i++) {
-        bill += items[i].name + " " + items[i].price + " " + items[i].quantity + "\n";
-    }
-    bill += "Total Price: " + totalPrice;
-    const billText = document.createTextNode(bill);
-    table.appendChild(billText);
+    const divContents = document.getElementById("multi-use").innerHTML;
+    const a = window.open('', '', 'height=500, width=500');
+    a.document.write('<html lang="en">');
+    a.document.write('<body > <h1 style="text-align: center">Bill Receipt<br>');
+    a.document.write(divContents);
+    a.document.write('</body></html>');
+    a.document.close();
+    a.print();
+}
+
+
+function toast() {
+    const x = document.getElementById("snackbar");
+    x.className = "show";
+  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+}
+
+function deleteItem(item_no){
+    items.splice(item_no,1);
+    console.log(items);
+    document.getElementById("items-table").deleteRow(item_no+1);
+    item_no--;
+    viewItems();
+    totalPriceFunc();
 }

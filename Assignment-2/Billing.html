@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>
+        D-Mart Billing System
+    </title>
+    <link rel="stylesheet" href="Billing.css">
+</head>
+
+<body>
+<div id="snackbar">Item Added Successfully</div>
+<div class="whole">
+    <div class="outer-div">
+        <div class="div-heading">
+            <h1>D-Mart Billing System</h1>
+        </div>
+        <div class="main-body">
+            <label for="item-name"><b>Item Name: </b></label>
+            <input type="text" id="item-name" name="item-name" placeholder="Enter Item Name">
+            <br>
+            <label for="price"><b>Item Price: </b></label>
+            <input type="text" id="price" name="price" placeholder="Enter Item Price">
+            <br>
+            <label for="quantity"><b>Item Quantity: </b></label>
+            <input type="text" id="quantity" name="quantity" placeholder="Enter Item Quantity">
+            <div class="add-item">
+                <button type="button" onclick="addItem()"><b>Add Item</b></button>
+            </div>
+        </div>
+        <div>
+            <button type="button" onclick="viewItems()" class="inline-buttons" style="background: #ffccff"><b>View Items Basket</b></button>
+            <button type="button" onclick="totalPriceFunc()" class="inline-buttons" style="background: aqua"><b>View Total Price</b></button>
+            <button type="button" onclick="generateBill()" class="inline-buttons" style="background: darkkhaki"><b>Generate Bill</b></button>
+        </div>
+        <div>
+        </div>
+    </div>
+    <div id="multi-use" class="multi-use">
+        <span class="close" onclick="closeDiv()">&times;</span>
+        <div id="items-basket" style="display: none">
+            <h2>Items Basket</h2>
+            <hr>
+            <div>
+                <table class="items-table" id="items-table">
+                <tr>
+                    <th>Item Name</th>
+                    <th>Item Price</th>
+                    <th>Item Quantity</th>
+                    <th>Delete</th>
+                </tr>
+            </table>
+            </div>
+        </div>
+    <!--    for Total price-->
+        <div id="Text-description" style="display: none;">
+            <h2></h2>
+        </div>
+    </div>
+</div>
+</body>
+<script src="Billing.js">
+</script>
+
+</html>

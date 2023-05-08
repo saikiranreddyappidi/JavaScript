@@ -1,0 +1,93 @@
+body {
+	background-color: #1A1A1A;
+	font-family: Arial, sans-serif;
+	height: 100%;
+	/*width: 100%;*/
+  /*background-image: url(https://media.giphy.com/media/U3qYN8S0j3bpK/giphy.gif);*/
+}
+
+header {
+	background-color: #008080;
+	color: #fff;
+	padding: 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+nav ul {
+	display: flex;
+/*	make it fixed while scrolling*/
+
+}
+
+nav ul li {
+	margin-right: 20px;
+}
+
+nav ul li:last-child {
+	margin-right: 0;
+}
+
+nav ul li a {
+	color: #fff;
+	text-decoration: none;
+}
+
+div {
+	max-width: 900px;
+	margin: 0 auto;
+	height: 100%;
+	padding: 40px 20px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.event {
+	flex-basis: calc(33.33% - 20px);
+	margin-bottom: 40px;
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+	padding: 20px;
+}
+
+.event h2 {
+	font-size: 24px;
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+
+.event p {
+	margin: 0;
+}
+
+.event img {
+	max-width: 100%;
+	margin-bottom: 10px;
+}
+
+button {
+	background-color: #008080;
+	color: #fff;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+button:hover {
+	background-color: #006666;
+}
+.footer-event{
+	background-color: #008080;
+	color: #fff;
+	padding: 10px;
+	text-align: center;
+	/*width: 100%;*/
+}
+
+.main-class{
+	height: 100%;
+}
